@@ -38,11 +38,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up kubectl
-      uses: azure/k8s-set-context@v3
-      with:
-        kubeconfig: ${{ secrets.KUBECONFIG }}
-        namespace: ${{env.K8S_NAMESPACE}}
+    - name: Set up kubectl on minikube
+      uses: medyagh/setup-minikube@latest
+      id: minikube
 
     - name: Deploy to Kubernetes
       run: |
