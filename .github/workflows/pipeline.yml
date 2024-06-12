@@ -41,7 +41,6 @@ jobs:
     - name: Set up kubectl
       uses: azure/k8s-set-context@v3
       with:
-        kubeconfig: ${{ secrets.KUBECONFIG }}
         namespace: ${{env.K8S_NAMESPACE}}
 
     - name: Deploy to Kubernetes
